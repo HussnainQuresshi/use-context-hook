@@ -1,12 +1,12 @@
 {
   "name": "use-context-selector-v2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is exact replica of useSelector in redux, it will avoid extra re-renders and only watcher the state that is imported from context",
   "main": "./dist/use-context-selector-v2.umd.js",
   "module": "./dist/use-context-selector-v2.module.mjs",
   "exports": "./dist/use-context-selector-v2.modern.mjs",
   "scripts": {
-    "build": "microbundle src/use-context-selector-v2.js"
+    "build": "microbundle build src/use-context-selector-v2.js -f  modern,umd --globals react=React,react-dom=ReactDOM"
   },
   "repository": {
     "type": "git",
