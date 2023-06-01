@@ -95,30 +95,30 @@ To create and use the context in your React application, follow these steps:
 
 6.  Use the context in your components:
 
-        ```js
-        import React, { memo } from "react";
-        import { useContextSelector } from "use-context-selector-v2";
-        import { Context } from "../../context";
+    ```js
+    import React, { memo } from "react";
+    import { useContextSelector } from "use-context-selector-v2";
+    import { Context } from "../../context";
 
-        export default memo(
-          function ComponentB() {
-            const { text, setText } = useContextSelector(Context, (_) => ({
-              // redux pattern
-              text: _.text,
-              setText: _.setText,
-            }));
+    export default memo(
+      function ComponentB() {
+        const { text, setText } = useContextSelector(Context, (_) => ({
+          // redux pattern
+          text: _.text,
+          setText: _.setText,
+        }));
 
-            return (
-              <div>
-                <div>This is Component B: {(Math.random() * 10000).toFixed(0)}</div>
-                <div>Text: {text}</div>
-                <input value={text} onChange={(e) => setText(e.target.value)} />
-              </div>
-            );
-          },
-          () => true
+        return (
+          <div>
+            <div>This is Component B: {(Math.random() * 10000).toFixed(0)}</div>
+            <div>Text: {text}</div>
+            <input value={text} onChange={(e) => setText(e.target.value)} />
+          </div>
         );
-        ```
+      },
+      () => true
+    );
+    ```
 
 ## Repository
 
