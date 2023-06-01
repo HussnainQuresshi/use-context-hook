@@ -128,4 +128,4 @@ Feel free to explore the repository to find more information, contribute, or rep
 
 ## Acknowledgements
 
-This package was created with the help and inspiration from the article ["Use Context Selector Demystified"](https://dev.to/romaintrotard/use-context-selector-demystified-4f8e) by Romain Trotard. The article provides valuable insights into the usage of `use-context-selector` and served as a reference during the development of this package. I would like to express our gratitude to Romain Trotard for sharing their knowledge and contributing to the community.
+This package was created with the help and inspiration from the article ["Use Context Selector Demystified"](https://dev.to/romaintrotard/use-context-selector-demystified-4f8e) by Romain Trotard. The article provides valuable insights into the usage of `use-context-selector` and served as a reference during the development of this package. I would like to express my gratitude to Romain Trotard for sharing their knowledge and contributing to the community.
