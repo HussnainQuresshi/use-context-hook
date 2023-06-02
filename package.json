@@ -1,6 +1,6 @@
 {
   "name": "use-context-selector-v2",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "This is exact replica of useSelector in redux, it will avoid extra re-renders and only watcher the state that is imported from context",
   "main": "./index.js",
   "scripts": {

@@ -187,7 +187,7 @@ These examples showcase the flexibility of the select hook in accessing context 
 
 ## Examples
 
-The [examples](exmaples) folder contains a sample application that demonstrates the usage of this hook. You can run the application by following these steps:
+The [examples](examples) folder contains a sample application that demonstrates the usage of this hook. You can run the application by following these steps:
 
 1.  Clone the repository:
 
