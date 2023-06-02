@@ -32,6 +32,8 @@ export function useContextSelector(Context, selector) {
         .filter((_) => selector[_])
         .reduce((a, c) => ({ ...a, [c]: _[c] }), {})
     );
+  if (typeof selector === "string")
+    return useSelector(Context, (_) => _[selector]);
   throw new Error("Invalid selector");
 }
 
