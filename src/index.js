@@ -3,9 +3,17 @@ import React, {
   useContext,
   useRef,
   useEffect,
+  useLayoutEffect,
   createContext as createContextOriginal,
 } from "react";
 
+/**
+ * Support for Server Side Rendering
+ */
+const isSSR =
+  typeof window === "undefined" ||
+  /ServerSideRendering/.test(window.navigator && window.navigator.userAgent);
+const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
 /**
  * @description use this instead of React.useContext
  * @param {*} Context a context created with createContext from this package
@@ -24,6 +32,7 @@ export function useContextSelector(Context, selector) {
         .filter((_) => selector[_])
         .reduce((a, c) => ({ ...a, [c]: _[c] }), {})
     );
+  throw new Error("Invalid selector");
 }
 
 /**
@@ -49,7 +58,7 @@ function createProvider(ProviderOriginal) {
       },
       listeners: new Set(),
     });
-    useEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       listenersRef.current.forEach((listener) => {
         listener(value, valueRef.current);
       });
