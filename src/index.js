@@ -6,7 +6,6 @@ import React, {
   useLayoutEffect,
   createContext as createContextOriginal,
 } from "react";
-
 /**
  * Support for Server Side Rendering
  */
@@ -47,7 +46,22 @@ export function createContext() {
   context.Provider = createProvider(context.Provider);
   return context;
 }
-
+/**
+ * @param {*} obj1
+ * @param {*} obj2
+ * @returns true if obj1 and obj2 are deeply equal
+ */
+const isDeepStrictEqual = (obj1, obj2) => {
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
+  }
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
+};
 function createProvider(ProviderOriginal) {
   return ({ value, children }) => {
     const valueRef = useRef(value);
@@ -89,23 +103,7 @@ function useSelector(context, selector) {
     const updateValueIfNeeded = (newValue, prevVal) => {
       const newS = selectorRef.current(newValue);
       const prevS = selectorRef.current(prevVal);
-      let memoryInfo = performance.memory;
-      console.log("Used Heap Size Before:", memoryInfo.usedJSHeapSize);
-      console.log("Total Heap Size Before:", memoryInfo.totalJSHeapSize);
-      console.log("Heap Size Limit Before:", memoryInfo.jsHeapSizeLimit);
-      console.log(
-        "============================AFTER============================"
-      );
-      let startTime = performance.now();
-      if (JSON.stringify(newS) !== JSON.stringify(prevS)) {
-        let endTime = performance.now();
-        const duration = endTime - startTime;
-        console.log("Duration:", duration, "milliseconds");
-        memoryInfo = performance.memory;
-        console.log("Used Heap Size After:", memoryInfo.usedJSHeapSize);
-        console.log("Total Heap Size After:", memoryInfo.totalJSHeapSize);
-        console.log("Heap Size Limit After:", memoryInfo.jsHeapSizeLimit);
-
+      if (!isDeepStrictEqual(newS, prevS)) {
         setSelectedValue(() => newS);
       }
     };

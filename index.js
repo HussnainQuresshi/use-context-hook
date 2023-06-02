@@ -21,6 +21,11 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 /**
+ * Support for Server Side Rendering
+ */
+var isSSR = typeof window === "undefined" || /ServerSideRendering/.test(window.navigator && window.navigator.userAgent);
+var useIsomorphicLayoutEffect = isSSR ? _react.useEffect : _react.useLayoutEffect;
+/**
  * @description use this instead of React.useContext
  * @param {*} Context a context created with createContext from this package
  * @param {*} selector | ["key","key","key"] || {key:1,key:,key:1} || (state)=>({ key1:state.key}) || (state)=>state.key
@@ -40,6 +45,10 @@ function useContextSelector(Context, selector) {
       return _objectSpread(_objectSpread({}, a), {}, _defineProperty({}, c, _[c]));
     }, {});
   });
+  if (typeof selector === "string") return useSelector(Context, function (_) {
+    return _[selector];
+  });
+  throw new Error("Invalid selector");
 }
 
 /**
@@ -52,6 +61,22 @@ function createContext() {
   context.Provider = createProvider(context.Provider);
   return context;
 }
+/**
+ * @param {*} obj1
+ * @param {*} obj2
+ * @returns true if obj1 and obj2 are deeply equal
+ */
+var isDeepStrictEqual = function isDeepStrictEqual(obj1, obj2) {
+  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
+  }
+  for (var key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
+    }
+  }
+  return true;
+};
 function createProvider(ProviderOriginal) {
   return function (_ref) {
     var value = _ref.value,
@@ -68,7 +93,7 @@ function createProvider(ProviderOriginal) {
       },
       listeners: new Set()
     });
-    (0, _react.useEffect)(function () {
+    useIsomorphicLayoutEffect(function () {
       listenersRef.current.forEach(function (listener) {
         listener(value, valueRef.current);
       });
@@ -90,16 +115,18 @@ function useSelector(context, selector) {
     selectedValue = _useState2[0],
     setSelectedValue = _useState2[1];
   var selectorRef = (0, _react.useRef)(selector);
-  (0, _react.useEffect)(function () {
+  useIsomorphicLayoutEffect(function () {
     selectorRef.current = selector;
   }, [selector, selectorRef]);
-  (0, _react.useEffect)(function () {
+  useIsomorphicLayoutEffect(function () {
     var updateValueIfNeeded = function updateValueIfNeeded(newValue, prevVal) {
       var newS = selectorRef.current(newValue);
       var prevS = selectorRef.current(prevVal);
-      if (JSON.stringify(newS) !== JSON.stringify(prevS)) setSelectedValue(function () {
-        return newS;
-      });
+      if (!isDeepStrictEqual(newS, prevS)) {
+        setSelectedValue(function () {
+          return newS;
+        });
+      }
     };
     var unregisterListener = registerListener(function (_, prevVal) {
       return updateValueIfNeeded(_, prevVal);
