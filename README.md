@@ -1,6 +1,14 @@
-# use-context-selector-v2
+# use-context-selector-v2: Solving Rerender Issues
 
-This package provides an exact replica of `useSelector` in Redux for React context. It allows you to avoid unnecessary re-renders by selectively watching only the imported state from the context.
+This custom hook aims to address a common problem encountered when using React context. By default, when a component consumes context using `useContext`, any changes to the context will cause the component to rerender. This behavior can lead to unnecessary rerenders, especially when the component only relies on a single state variable or a specific function from the context.
+
+Inspired by Redux selectors, this select hook provides a solution to this issue. It allows you to selectively watch and import only the required state variables or functions from the context. By doing so, the component will only rerender when the specifically imported state or function changes, optimizing performance and reducing unnecessary rerenders.
+
+With this select hook, you can achieve the same benefits as using Redux selectors in a React context. It offers granular control over which parts of the context your component depends on, ensuring efficient updates and improving overall performance.
+
+By adopting this hook in your application, you can effectively overcome the rerender problem associated with using React context. The select hook behaves similar to Redux selectors, enabling you to watch specific context elements and trigger rerenders only when necessary.
+
+Make the most out of this select hook and enjoy optimized rendering in your React components that consume context!
 
 ## Installation
 
