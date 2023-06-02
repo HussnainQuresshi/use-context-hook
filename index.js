@@ -67,6 +67,11 @@ function createContext() {
  * @returns true if obj1 and obj2 are deeply equal
  */
 var isDeepStrictEqual = function isDeepStrictEqual(obj1, obj2) {
+  if (_typeof(obj1) !== _typeof(obj2)) return false;
+  if (_typeof(obj1) !== "object") {
+    if (typeof obj1 === "function" && typeof obj2 === "function") return true;
+    return obj1 === obj2;
+  }
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
   }

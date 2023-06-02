@@ -108,11 +108,6 @@ function useSelector(context, selector) {
     const updateValueIfNeeded = (newValue, prevVal) => {
       const newS = selectorRef.current(newValue);
       const prevS = selectorRef.current(prevVal);
-      console.log({
-        newS,
-        prevS,
-        isEqual: !isDeepStrictEqual(newS, prevS),
-      });
       if (!isDeepStrictEqual(newS, prevS)) {
         setSelectedValue(() => newS);
       }
