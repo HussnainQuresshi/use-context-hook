@@ -120,6 +120,53 @@ To create and use the context in your React application, follow these steps:
     );
     ```
 
+## Using the Hook in Various Ways
+
+The select hook in React allows you to conveniently access specific values from a context object. Here are several examples demonstrating different ways you can utilize the select hook in your application:
+
+1.  Single String Approach:
+
+```js
+const count = useContextSelector(Context, "count");
+const setCount = useContextSelector(Context, "setCount");
+```
+
+2. Array Approach:
+
+```js
+const [count, setCount] = useContextSelector(Context, ["count", "setCount"]);
+```
+
+3. Object Approach:
+
+```js
+const { count, setCount } = useContextSelector(Context, {
+  count: 1,
+  setCount: 1,
+});
+```
+
+4. Redux Selectors Pattern::
+
+```js
+const { count, setCount } = useContextSelector(Context, (_) => ({
+  count: _.count,
+  setCount: _.setCount,
+}));
+```
+
+In this pattern, you pass a function that takes the entire context object as an argument and returns an object with the desired context values. This allows for more complex logic or transformations to be applied before retrieving the values.
+
+Additionally, the Redux Selectors Pattern can be simplified for a single context value:
+
+```js
+const count = useContextSelector(Context, (_) => _.count);
+```
+
+This concise form extracts a single value directly from the context object based on the provided function.
+
+These examples showcase the flexibility of the select hook in accessing context values in various scenarios. Feel free to choose the method that best suits your application's needs.
+
 ## Repository
 
 This package is hosted on GitHub. You can find the repository at [https://github.com/HussnainQuresshi/use-context-selector](https://github.com/HussnainQuresshi/use-context-selector).
