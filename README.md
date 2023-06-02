@@ -1,6 +1,6 @@
 # use-context-selector-v2
 
-Solving Rerender Issues
+**Important: All previous versions are deprecated. Please use the latest version (2.1.1 or above).**
 
 ## Introduction
 
