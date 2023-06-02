@@ -7,7 +7,7 @@ const context = {};
 export const Context = createContext(context);
 
 export function ContextProvider(props) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [text, setText] = useState("hello world");
   return (
     <Context.Provider
