@@ -1,0 +1,43 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const { DIR } = process.env;
+
+module.exports = {
+  mode: "development",
+  devtool: "cheap-module-source-map",
+  entry: `./examples/${DIR}/src/index.js`,
+  output: {
+    publicPath: "/",
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: `./examples/${DIR}/public/index.html`,
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".js", ".jsx"],
+    alias: {
+      "use-context-selector-v2": `${__dirname}/src`,
+      components: `${__dirname}/examples/${DIR}/src/components`,
+    },
+  },
+  devServer: {
+    port: process.env.PORT || "3000",
+    static: {
+      directory: `./examples/${DIR}/public`,
+    },
+    historyApiFallback: true,
+  },
+};

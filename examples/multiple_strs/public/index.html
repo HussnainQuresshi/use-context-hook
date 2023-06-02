@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>use-context-selector-v2 single_str_selector</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      code {
+        font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+          monospace;
+      }
+      .App {
+        text-align: center;
+      }
+      .container {
+        background-color: #282c34;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        font-size: calc(10px + 2vmin);
+        color: white;
+      }
+      .container > div {
+        width: 500px;
+        height: 500px;
+        padding: 10px;
+        border: #ccc solid 1px;
+      }
+      .input {
+        width: 300px;
+        height: 30px;
+        padding: 10px;
+        border: #ccc solid 1px;
+      }
+      .input:focus {
+        outline: none;
+      }
+      .input::placeholder {
+        color: #ccc;
+      }
+      .input:focus::placeholder {
+        color: transparent;
+      }
+      .input:focus-visible {
+        border: #ccc solid 1px;
+      }
+      .button {
+        width: 100px;
+        height: 50px;
+        padding: 10px;
+        border: #ccc solid 1px;
+        background-color: #ccc;
+        color: #282c34;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #282c34;
+        color: #ccc;
+      }
+      .button:focus {
+        outline: none;
+      }
+      .button:active {
+        background-color: #282c34;
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

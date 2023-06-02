@@ -81,16 +81,33 @@ function useSelector(context, selector) {
   );
   const selectorRef = useRef(selector);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     selectorRef.current = selector;
   }, [selector, selectorRef]);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const updateValueIfNeeded = (newValue, prevVal) => {
       const newS = selectorRef.current(newValue);
       const prevS = selectorRef.current(prevVal);
-      if (JSON.stringify(newS) !== JSON.stringify(prevS))
+      let memoryInfo = performance.memory;
+      console.log("Used Heap Size Before:", memoryInfo.usedJSHeapSize);
+      console.log("Total Heap Size Before:", memoryInfo.totalJSHeapSize);
+      console.log("Heap Size Limit Before:", memoryInfo.jsHeapSizeLimit);
+      console.log(
+        "============================AFTER============================"
+      );
+      let startTime = performance.now();
+      if (JSON.stringify(newS) !== JSON.stringify(prevS)) {
+        let endTime = performance.now();
+        const duration = endTime - startTime;
+        console.log("Duration:", duration, "milliseconds");
+        memoryInfo = performance.memory;
+        console.log("Used Heap Size After:", memoryInfo.usedJSHeapSize);
+        console.log("Total Heap Size After:", memoryInfo.totalJSHeapSize);
+        console.log("Heap Size Limit After:", memoryInfo.jsHeapSizeLimit);
+
         setSelectedValue(() => newS);
+      }
     };
     const unregisterListener = registerListener((_, prevVal) =>
       updateValueIfNeeded(_, prevVal)
