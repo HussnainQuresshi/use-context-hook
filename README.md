@@ -1,4 +1,8 @@
-# use-context-selector-v2: Solving Rerender Issues
+# use-context-selector-v2
+
+Solving Rerender Issues
+
+## Introduction
 
 This custom hook aims to address a common problem encountered when using React context. By default, when a component consumes context using `useContext`, any changes to the context will cause the component to rerender. This behavior can lead to unnecessary rerenders, especially when the component only relies on a single state variable or a specific function from the context.
 
@@ -10,13 +14,17 @@ By adopting this hook in your application, you can effectively overcome the rere
 
 Make the most out of this select hook and enjoy optimized rendering in your React components that consume context!
 
+---
+
 ## Installation
 
-Before using this context, make sure you have the `use-context-selector-v2` package installed in your project. You can install it by running the following command:
+Before using this hook, make sure you have the `use-context-selector-v2` package installed in your project. You can install it by running the following command:
 
 ```bash
 npm install use-context-selector-v2
 ```
+
+---
 
 ## Usage
 
@@ -25,14 +33,13 @@ To create and use the context in your React application, follow these steps:
 1.  Import the necessary dependencies:
 
     ```js
-    import React, { useState } from "react";
     import { createContext } from "use-context-selector-v2";
     ```
 
 2.  Create the context:
 
     ```js
-    export const Context = createContext(context);
+    export const Context = createContext({});
     ```
 
 3.  Create a provider component:
@@ -71,7 +78,7 @@ To create and use the context in your React application, follow these steps:
     export default App;
     ```
 
-5.  Use the context in your components:
+5.  Use the hook in your components:
 
     ```js
     import React, { memo } from "react";
@@ -80,10 +87,10 @@ To create and use the context in your React application, follow these steps:
 
     export default memo(
     function ComponentA() {
-     const { count, setCount } = useContextSelector(Context, [
-       "count",
-       "setCount",
-     ]);
+     const { count, setCount } = useContextSelector(Context, (v)=>({
+        count: v.count,
+        setCount: v.setCount,
+     }));
 
      return (
          <div>
@@ -110,10 +117,9 @@ To create and use the context in your React application, follow these steps:
 
     export default memo(
       function ComponentB() {
-        const { text, setText } = useContextSelector(Context, (_) => ({
-          // redux pattern
-          text: _.text,
-          setText: _.setText,
+        const { count, setCount } = useContextSelector(Context, (v) => ({
+          text: v.text,
+          setText: v.setText,
         }));
 
         return (
@@ -128,7 +134,11 @@ To create and use the context in your React application, follow these steps:
     );
     ```
 
-## Using the Hook in Various Ways
+---
+
+## API
+
+### Using the Hook in Various Ways
 
 The select hook in React allows you to conveniently access specific values from a context object. Here are several examples demonstrating different ways you can utilize the select hook in your application:
 
@@ -142,7 +152,7 @@ const setCount = useContextSelector(Context, "setCount");
 2. Array Approach:
 
 ```js
-const [count, setCount] = useContextSelector(Context, ["count", "setCount"]);
+const { count, setCount } = useContextSelector(Context, ["count", "setCount"]);
 ```
 
 3. Object Approach:
@@ -175,11 +185,60 @@ This concise form extracts a single value directly from the context object based
 
 These examples showcase the flexibility of the select hook in accessing context values in various scenarios. Feel free to choose the method that best suits your application's needs.
 
+## Examples
+
+The [examples](exmaples) folder contains a sample application that demonstrates the usage of this hook. You can run the application by following these steps:
+
+1.  Clone the repository:
+
+    [https://github.com/HussnainQuresshi/use-context-selector-v2](https://github.com/HussnainQuresshi/use-context-selector-v2)
+
+2.  Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3.  Run the examples:
+
+    ```bash
+    npm run example:single_str
+    ```
+
+    ```bash
+    npm run example:multiple_strs
+    ```
+
+    ```bash
+    npm run example:obj_based
+    ```
+
+    ```bash
+    npm run example:redux_based
+    ```
+
+4.  Open the application in your browser:
+
+    [http://localhost:3000](http://localhost:3000)
+
+You can also try then in codesandbox:
+[single_str](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/single_str)
+[multiple_strs](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/multiple_strs)
+[obj_based](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/obj_based)
+[redux_based](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/redux_based)
+
 ## Repository
 
-This package is hosted on GitHub. You can find the repository at [https://github.com/HussnainQuresshi/use-context-selector](https://github.com/HussnainQuresshi/use-context-selector).
+This package is hosted on GitHub. You can find the repository at [https://github.com/HussnainQuresshi/use-context-selector-v2](https://github.com/HussnainQuresshi/use-context-selector-v2).
 
 Feel free to explore the repository to find more information, contribute, or report any issues you encounter.
+
+[![npm](https://img.shields.io/npm/v/use-context-selector-v2)](https://www.npmjs.com/package/use-context-selector-v2)
+[![size](https://img.shields.io/bundlephobia/minzip/use-context-selector-v2)](https://bundlephobia.com/result?p=use-context-selector-v2)
+[![downloads](https://img.shields.io/npm/dm/use-context-selector-v2)](https://www.npmjs.com/package/use-context-selector-v2)
+[![license](https://img.shields.io/npm/l/use-context-selector-v2)](LICENSE)
+
+---
 
 ## Acknowledgements
 
