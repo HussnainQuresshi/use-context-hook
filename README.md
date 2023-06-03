@@ -21,7 +21,7 @@ Make the most out of this select hook and enjoy optimized rendering in your Reac
 Before using this hook, make sure you have the `use-context-selector-v2` package installed in your project. You can install it by running the following command:
 
 ```bash
-npm use-context-selector-v2
+npm i use-context-selector-v2
 ```
 
 ---
