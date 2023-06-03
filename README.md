@@ -1,4 +1,4 @@
-# use-context-hook
+# use-context-hook (use-context-selector-v2)
 
 **Important: All previous versions are deprecated. Please use the latest version (2.0.0 or above).**
 
@@ -18,10 +18,10 @@ Make the most out of this select hook and enjoy optimized rendering in your Reac
 
 ## Installation
 
-Before using this hook, make sure you have the `use-context-hook` package installed in your project. You can install it by running the following command:
+Before using this hook, make sure you have the `use-context-selector-v2` package installed in your project. You can install it by running the following command:
 
 ```bash
-npm use-context-hook
+npm use-context-selector-v2
 ```
 
 ---
@@ -33,7 +33,7 @@ To create and use the context in your React application, follow these steps:
 1.  Import the necessary dependencies:
 
     ```js
-    import { createContext } from "use-context-hook";
+    import { createContext } from "use-context-selector-v2";
     ```
 
 2.  Create the context:
@@ -82,7 +82,7 @@ To create and use the context in your React application, follow these steps:
 
     ```js
     import React, { memo } from "react";
-    import { useContextSelector } from "use-context-hook";
+    import { useContextSelector } from "use-context-selector-v2";
     import { Context } from "../../context";
 
     export default memo(
@@ -112,7 +112,7 @@ To create and use the context in your React application, follow these steps:
 
     ```js
     import React, { memo } from "react";
-    import { useContextSelector } from "use-context-hook";
+    import { useContextSelector } from "use-context-selector-v2";
     import { Context } from "../../context";
 
     export default memo(
@@ -233,10 +233,10 @@ This package is hosted on GitHub. You can find the repository at [https://github
 
 Feel free to explore the repository to find more information, contribute, or report any issues you encounter.
 
-[![npm](https://img.shields.io/npm/v/use-context-hook)](https://www.npmjs.com/package/use-context-hook)
-[![size](https://img.shields.io/bundlephobia/minzip/use-context-hook)](https://bundlephobia.com/result?p=use-context-hook)
-[![downloads](https://img.shields.io/npm/dm/use-context-hook)](https://www.npmjs.com/package/use-context-hook)
-[![license](https://img.shields.io/npm/l/use-context-hook)](LICENSE)
+[![npm](https://img.shields.io/npm/v/use-context-selector-v2)](https://www.npmjs.com/package/use-context-selector-v2)
+[![size](https://img.shields.io/bundlephobia/minzip/use-context-selector-v2)](https://bundlephobia.com/result?p=use-context-selector-v2)
+[![downloads](https://img.shields.io/npm/dm/use-context-selector-v2)](https://www.npmjs.com/package/use-context-selector-v2)
+[![license](https://img.shields.io/npm/l/use-context-selector-v2)](LICENSE)
 
 ---
 
