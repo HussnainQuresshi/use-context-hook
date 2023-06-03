@@ -51,22 +51,23 @@ export function createContext() {
  * @param {*} obj2
  * @returns true if obj1 and obj2 are deeply equal
  */
-const isDeepStrictEqual = (obj1, obj2) => {
-  if (typeof obj1 !== typeof obj2) return false;
-  if (typeof obj1 !== "object") {
-    if (typeof obj1 === "function" && typeof obj2 === "function") return true;
-    return obj1 === obj2;
+function deepCompare(obj1 = "", obj2 = "") {
+  if (typeof obj1 != typeof obj2) return false;
+  if (typeof obj1 != "object") {
+    if (typeof obj1 == "function" && typeof obj2 == "function") return true;
+    return obj1 == obj2;
   }
-  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+  if (Object.keys(obj1).length != Object.keys(obj2).length) {
     return false;
   }
-  for (let key in obj1) {
-    if (obj1[key] !== obj2[key]) {
+  //deeply compare objects
+  for (const key in obj1) {
+    if (!deepCompare(obj1[key], obj2[key])) {
       return false;
     }
   }
   return true;
-};
+}
 function createProvider(ProviderOriginal) {
   return ({ value, children }) => {
     const valueRef = useRef(value);
@@ -108,7 +109,7 @@ function useSelector(context, selector) {
     const updateValueIfNeeded = (newValue, prevVal) => {
       const newS = selectorRef.current(newValue);
       const prevS = selectorRef.current(prevVal);
-      if (!isDeepStrictEqual(newS, prevS)) {
+      if (!deepCompare(newS, prevS)) {
         setSelectedValue(() => newS);
       }
     };

@@ -66,22 +66,25 @@ function createContext() {
  * @param {*} obj2
  * @returns true if obj1 and obj2 are deeply equal
  */
-var isDeepStrictEqual = function isDeepStrictEqual(obj1, obj2) {
-  if (_typeof(obj1) !== _typeof(obj2)) return false;
-  if (_typeof(obj1) !== "object") {
-    if (typeof obj1 === "function" && typeof obj2 === "function") return true;
-    return obj1 === obj2;
+function deepCompare() {
+  var obj1 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+  var obj2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+  if (_typeof(obj1) != _typeof(obj2)) return false;
+  if (_typeof(obj1) != "object") {
+    if (typeof obj1 == "function" && typeof obj2 == "function") return true;
+    return obj1 == obj2;
   }
-  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+  if (Object.keys(obj1).length != Object.keys(obj2).length) {
     return false;
   }
+  //deeply compare objects
   for (var key in obj1) {
-    if (obj1[key] !== obj2[key]) {
+    if (!deepCompare(obj1[key], obj2[key])) {
       return false;
     }
   }
   return true;
-};
+}
 function createProvider(ProviderOriginal) {
   return function (_ref) {
     var value = _ref.value,
@@ -127,7 +130,7 @@ function useSelector(context, selector) {
     var updateValueIfNeeded = function updateValueIfNeeded(newValue, prevVal) {
       var newS = selectorRef.current(newValue);
       var prevS = selectorRef.current(prevVal);
-      if (!isDeepStrictEqual(newS, prevS)) {
+      if (!deepCompare(newS, prevS)) {
         setSelectedValue(function () {
           return newS;
         });

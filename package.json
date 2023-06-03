@@ -4,12 +4,16 @@
   "description": "React use-context-hook use-context-selector-v2",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "tsc-test": "tsc --project . --noEmit",
     "build": "./node_modules/.bin/babel src --out-file index.js",
     "example:single_str": "DIR=single_str webpack serve --open",
     "example:redux_based": "DIR=redux_based webpack serve --open",
     "example:obj_based": "DIR=obj_based webpack serve --open",
     "example:multiple_strs": "DIR=multiple_strs webpack serve --open"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -34,8 +38,11 @@
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^14.0.0",
     "babel-loader": "^9.1.2",
     "html-webpack-plugin": "^5.5.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "webpack": "^5.85.0",
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
