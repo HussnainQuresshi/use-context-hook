@@ -1,6 +1,6 @@
-# use-context-selector-v2
+# use-context-hook
 
-**Important: All previous versions are deprecated. Please use the latest version (2.1.1 or above).**
+**Important: All previous versions are deprecated. Please use the latest version (2.0.0 or above).**
 
 ## Introduction
 
@@ -18,10 +18,10 @@ Make the most out of this select hook and enjoy optimized rendering in your Reac
 
 ## Installation
 
-Before using this hook, make sure you have the `use-context-selector-v2` package installed in your project. You can install it by running the following command:
+Before using this hook, make sure you have the `use-context-hook` package installed in your project. You can install it by running the following command:
 
 ```bash
-npm install use-context-selector-v2
+npm use-context-hook
 ```
 
 ---
@@ -33,7 +33,7 @@ To create and use the context in your React application, follow these steps:
 1.  Import the necessary dependencies:
 
     ```js
-    import { createContext } from "use-context-selector-v2";
+    import { createContext } from "use-context-hook";
     ```
 
 2.  Create the context:
@@ -82,7 +82,7 @@ To create and use the context in your React application, follow these steps:
 
     ```js
     import React, { memo } from "react";
-    import { useContextSelector } from "use-context-selector-v2";
+    import { useContextSelector } from "use-context-hook";
     import { Context } from "../../context";
 
     export default memo(
@@ -112,7 +112,7 @@ To create and use the context in your React application, follow these steps:
 
     ```js
     import React, { memo } from "react";
-    import { useContextSelector } from "use-context-selector-v2";
+    import { useContextSelector } from "use-context-hook";
     import { Context } from "../../context";
 
     export default memo(
@@ -191,7 +191,7 @@ The [examples](examples) folder contains a sample application that demonstrates 
 
 1.  Clone the repository:
 
-    [https://github.com/HussnainQuresshi/use-context-selector-v2](https://github.com/HussnainQuresshi/use-context-selector-v2)
+    [https://github.com/HussnainQuresshi/use-context-hook](https://github.com/HussnainQuresshi/use-context-hook)
 
 2.  Install the dependencies:
 
@@ -222,21 +222,21 @@ The [examples](examples) folder contains a sample application that demonstrates 
     [http://localhost:3000](http://localhost:3000)
 
 You can also try then in codesandbox:
-[single_str](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/single_str)
-[multiple_strs](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/multiple_strs)
-[obj_based](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/obj_based)
-[redux_based](https://codesandbox.io/s/github/HussnainQuresshi/use-context-selector-v2/tree/master/examples/redux_based)
+[single_str](https://codesandbox.io/s/github/HussnainQuresshi/use-context-hook/tree/master/examples/single_str)
+[multiple_strs](https://codesandbox.io/s/github/HussnainQuresshi/use-context-hook/tree/master/examples/multiple_strs)
+[obj_based](https://codesandbox.io/s/github/HussnainQuresshi/use-context-hook/tree/master/examples/obj_based)
+[redux_based](https://codesandbox.io/s/github/HussnainQuresshi/use-context-hook/tree/master/examples/redux_based)
 
 ## Repository
 
-This package is hosted on GitHub. You can find the repository at [https://github.com/HussnainQuresshi/use-context-selector-v2](https://github.com/HussnainQuresshi/use-context-selector-v2).
+This package is hosted on GitHub. You can find the repository at [https://github.com/HussnainQuresshi/use-context-hook](https://github.com/HussnainQuresshi/use-context-hook).
 
 Feel free to explore the repository to find more information, contribute, or report any issues you encounter.
 
-[![npm](https://img.shields.io/npm/v/use-context-selector-v2)](https://www.npmjs.com/package/use-context-selector-v2)
-[![size](https://img.shields.io/bundlephobia/minzip/use-context-selector-v2)](https://bundlephobia.com/result?p=use-context-selector-v2)
-[![downloads](https://img.shields.io/npm/dm/use-context-selector-v2)](https://www.npmjs.com/package/use-context-selector-v2)
-[![license](https://img.shields.io/npm/l/use-context-selector-v2)](LICENSE)
+[![npm](https://img.shields.io/npm/v/use-context-hook)](https://www.npmjs.com/package/use-context-hook)
+[![size](https://img.shields.io/bundlephobia/minzip/use-context-hook)](https://bundlephobia.com/result?p=use-context-hook)
+[![downloads](https://img.shields.io/npm/dm/use-context-hook)](https://www.npmjs.com/package/use-context-hook)
+[![license](https://img.shields.io/npm/l/use-context-hook)](LICENSE)
 
 ---
 

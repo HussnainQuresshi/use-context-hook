@@ -1,9 +1,10 @@
 {
-  "name": "use-context-selector-v2",
-  "version": "2.1.2",
-  "description": "This is exact replica of useSelector in redux, it will avoid extra re-renders and only watcher the state that is imported from context",
+  "name": "use-context-hook",
+  "version": "2.0.0",
+  "description": "React use-context-hook",
   "main": "./index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "./node_modules/.bin/babel src --out-file index.js",
     "example:single_str": "DIR=single_str webpack serve --open",
     "example:redux_based": "DIR=redux_based webpack serve --open",
@@ -12,20 +13,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HussnainQuresshi/use-context-selector-v2.git"
+    "url": "https://github.com/HussnainQuresshi/use-context-hook.git"
   },
   "keywords": [
+    "react",
     "react-context",
     "context",
+    "use-context-selector-v2",
     "use-context-selector",
-    "use-selector"
+    "use-context-hook"
   ],
   "author": "Hussnain Qureshi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/HussnainQuresshi/use-context-selector-v2/issues"
+    "url": "https://github.com/HussnainQuresshi/use-context-hook/issues"
   },
-  "homepage": "https://github.com/HussnainQuresshi/use-context-selector-v2#readme",
+  "homepage": "https://github.com/HussnainQuresshi/use-context-hook#readme",
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
