@@ -57,6 +57,11 @@ function deepCompare(obj1 = "", obj2 = "") {
     if (typeof obj1 == "function" && typeof obj2 == "function") return true;
     return obj1 == obj2;
   }
+  //handle the null and undefined cases
+  if (!obj1 || !obj2) {
+    if (!obj1 && !obj2) return true;
+    return obj1 == obj2;
+  }
   if (Object.keys(obj1).length != Object.keys(obj2).length) {
     return false;
   }
