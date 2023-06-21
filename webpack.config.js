@@ -6,7 +6,7 @@ const { DIR } = process.env;
 module.exports = {
   mode: "development",
   devtool: "cheap-module-source-map",
-  entry: `./examples/${DIR}/src/index.js`,
+  entry: `./examples/${DIR}/src/index.jsx`,
   output: {
     publicPath: "/",
   },
@@ -27,9 +27,9 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
-      "use-context-selector-v2": `${__dirname}/src`,
+      "use-context-selector-v2": `${__dirname}/dist`,
       components: `${__dirname}/examples/${DIR}/src/components`,
     },
   },

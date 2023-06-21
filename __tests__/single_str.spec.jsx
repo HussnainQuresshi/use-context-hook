@@ -1,6 +1,6 @@
 import React, { StrictMode, useRef } from "react";
 import { render, fireEvent, cleanup, screen } from "@testing-library/react";
-import { createContext, useContextSelector } from "../src";
+import { createContext, useContextSelector } from "../dist";
 
 describe("single_str", () => {
   afterEach(cleanup);
