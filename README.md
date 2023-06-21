@@ -19,7 +19,7 @@ Make the most out of this select hook and enjoy optimized rendering in your Reac
 Before using this hook, make sure you have the `use-context-hooks` package installed in your project. You can install it by running the following command:
 
 ```bash
-npm i use-context-hooks
+npm i use-context-hook
 ```
 
 ---

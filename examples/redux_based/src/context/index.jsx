@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
-import { createContext } from "use-context-selector-v2";
+import { createContext } from "use-context-hook";
 
 const context = {};
 

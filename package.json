@@ -1,7 +1,7 @@
 {
   "name": "use-context-hook",
   "version": "2.0.0",
-  "description": "React use-context-hook use-context-selector-v2",
+  "description": "React use-context-hook use-context-hook",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
@@ -23,7 +23,7 @@
     "react",
     "react-context",
     "context",
-    "use-context-selector-v2",
+    "use-context-hook",
     "use-context-selector",
     "use-context-hook"
   ],

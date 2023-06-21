@@ -29,7 +29,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
-      "use-context-selector-v2": `${__dirname}/dist`,
+      "use-context-hook": `${__dirname}/dist`,
       components: `${__dirname}/examples/${DIR}/src/components`,
     },
   },

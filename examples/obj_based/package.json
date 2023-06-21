@@ -1,11 +1,11 @@
 {
-  "name": "use-context-selector-v2-example",
+  "name": "use-context-hook-example",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
     "react": "latest",
     "react-dom": "latest",
-    "use-context-selector-v2": "latest",
+    "use-context-hook": "latest",
     "react-scripts": "latest"
   },
   "scripts": {

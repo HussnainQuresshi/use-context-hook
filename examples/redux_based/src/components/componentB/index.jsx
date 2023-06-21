@@ -1,5 +1,5 @@
 import React from "react";
-import { useContextSelector } from "use-context-selector-v2";
+import { useContextSelector } from "use-context-hook";
 import { Context } from "../../context";
 
 export default function ComponentB() {
