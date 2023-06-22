@@ -1,8 +1,10 @@
 {
   "name": "use-context-hook",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "React use-context-hook use-context-hook",
   "main": "dist/index.js",
+  "map": "dist/index.js.map",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",
     "tsc-test": "tsc --project .",
