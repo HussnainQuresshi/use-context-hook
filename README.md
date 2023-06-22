@@ -31,13 +31,13 @@ To create and use the context in your React application, follow these steps:
 1.  Import the necessary dependencies:
 
     ```js
-    import { createContext } from "use-context-hook";
+    import { createContextHook } from "use-context-hook";
     ```
 
 2.  Create the context:
 
     ```js
-    export const Context = createContext({});
+    export const Context = createContextHook({});
     ```
 
 3.  Create a provider component:
@@ -80,12 +80,12 @@ To create and use the context in your React application, follow these steps:
 
     ```js
     import React, { memo } from "react";
-    import { useContextSelector } from "use-context-hook";
+    import { useContextHook } from "use-context-hook";
     import { Context } from "../../context";
 
     export default memo(
     function ComponentA() {
-     const { count, setCount } = useContextSelector(Context, (v)=>({
+     const { count, setCount } = useContextHook(Context, (v)=>({
         count: v.count,
         setCount: v.setCount,
      }));
@@ -110,12 +110,12 @@ To create and use the context in your React application, follow these steps:
 
     ```js
     import React, { memo } from "react";
-    import { useContextSelector } from "use-context-hook";
+    import { useContextHook } from "use-context-hook";
     import { Context } from "../../context";
 
     export default memo(
       function ComponentB() {
-        const { count, setCount } = useContextSelector(Context, (v) => ({
+        const { count, setCount } = useContextHook(Context, (v) => ({
           text: v.text,
           setText: v.setText,
         }));
@@ -143,20 +143,20 @@ The select hook in React allows you to conveniently access specific values from 
 1.  Single String Approach:
 
 ```js
-const count = useContextSelector(Context, "count");
-const setCount = useContextSelector(Context, "setCount");
+const count = useContextHook(Context, "count");
+const setCount = useContextHook(Context, "setCount");
 ```
 
 2. Array Approach:
 
 ```js
-const { count, setCount } = useContextSelector(Context, ["count", "setCount"]);
+const { count, setCount } = useContextHook(Context, ["count", "setCount"]);
 ```
 
 3. Object Approach:
 
 ```js
-const { count, setCount } = useContextSelector(Context, {
+const { count, setCount } = useContextHook(Context, {
   count: 1,
   setCount: 1,
 });
@@ -165,7 +165,7 @@ const { count, setCount } = useContextSelector(Context, {
 4. Redux Selectors Pattern::
 
 ```js
-const { count, setCount } = useContextSelector(Context, (_) => ({
+const { count, setCount } = useContextHook(Context, (_) => ({
   count: _.count,
   setCount: _.setCount,
 }));
@@ -176,7 +176,7 @@ In this pattern, you pass a function that takes the entire context object as an 
 Additionally, the Redux Selectors Pattern can be simplified for a single context value:
 
 ```js
-const count = useContextSelector(Context, (_) => _.count);
+const count = useContextHook(Context, (_) => _.count);
 ```
 
 This concise form extracts a single value directly from the context object based on the provided function.
@@ -240,4 +240,4 @@ Feel free to explore the repository to find more information, contribute, or rep
 
 ## Acknowledgements
 
-This package was created with the help and inspiration from the article ["Use Context Selector Demystified"](https://dev.to/romaintrotard/use-context-selector-demystified-4f8e) by Romain Trotard. The article provides valuable insights into the usage of `use-context-selector` and served as a reference during the development of this package. I would like to express my gratitude to Romain Trotard for sharing their knowledge and contributing to the community.
+This package was created with the help and inspiration from the article ["Use Context Selector Demystified"](https://dev.to/romaintrotard/use-context-selector-demystified-4f8e) by Romain Trotard. The article provides valuable insights into the usage of `useContextHook` and served as a reference during the development of this package. I would like to express my gratitude to Romain Trotard for sharing their knowledge and contributing to the community.

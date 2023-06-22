@@ -1,15 +1,15 @@
 import React, { StrictMode, useRef } from "react";
 import { render, fireEvent, cleanup, screen } from "@testing-library/react";
-import { createContext, useContextSelector } from "../dist";
+import { createContext, useContextHook } from "../dist";
 
 describe("single_str", () => {
   afterEach(cleanup);
   it("should not re-render componentB", () => {
     const Context = createContext();
     const ComponentA = () => {
-      const count1 = useContextSelector(Context, "count1");
-      const setCount1 = useContextSelector(Context, "setCount1");
-      const complexObj = useContextSelector(Context, "complexObj");
+      const count1 = useContextHook(Context, "count1");
+      const setCount1 = useContextHook(Context, "setCount1");
+      const complexObj = useContextHook(Context, "complexObj");
       const renderCount = useRef(0);
       renderCount.current += 1;
       return (
@@ -23,8 +23,8 @@ describe("single_str", () => {
       );
     };
     const ComponentB = () => {
-      const count2 = useContextSelector(Context, "count2");
-      const complexObj = useContextSelector(Context, "complexObj");
+      const count2 = useContextHook(Context, "count2");
+      const complexObj = useContextHook(Context, "complexObj");
 
       const renderCount = useRef(0);
       renderCount.current += 1;

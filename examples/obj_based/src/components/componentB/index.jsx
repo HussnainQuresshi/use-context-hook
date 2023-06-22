@@ -1,9 +1,9 @@
 import React from "react";
-import { useContextSelector } from "use-context-hook";
+import { useContextHook } from "use-context-hook";
 import { Context } from "../../context";
 
 export default function ComponentB() {
-  const { text, setText } = useContextSelector(Context, {
+  const { text, setText } = useContextHook(Context, {
     text: 1,
     setText: 1,
   });

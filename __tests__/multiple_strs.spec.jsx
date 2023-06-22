@@ -1,13 +1,13 @@
 import React, { StrictMode, useRef } from "react";
 import { render, fireEvent, cleanup, screen } from "@testing-library/react";
-import { createContext, useContextSelector } from "../dist";
+import { createContext, useContextHook } from "../dist";
 
 describe("multiple str", () => {
   afterEach(cleanup);
   it("should not re-render componentB", () => {
     const Context = createContext();
     const ComponentA = () => {
-      const { count1, setCount1, complexObj } = useContextSelector(Context, [
+      const { count1, setCount1, complexObj } = useContextHook(Context, [
         "count1",
         "setCount1",
         "complexObj",
@@ -25,7 +25,7 @@ describe("multiple str", () => {
       );
     };
     const ComponentB = () => {
-      const { count2, complexObj } = useContextSelector(Context, [
+      const { count2, complexObj } = useContextHook(Context, [
         "count2",
         "complexObj",
       ]);

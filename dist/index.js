@@ -34,7 +34,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createContext = exports.useContextSelector = void 0;
+exports.useContextSelector = exports.createContext = exports.createContextHook = exports.useContextHook = void 0;
 var react_1 = __importStar(require("react"));
 /**
  * Support for Server Side Rendering
@@ -48,7 +48,7 @@ var useIsomorphicLayoutEffect = isSSR ? react_1.useEffect : react_1.useLayoutEff
  * @param {Function | Array | Object | string} selector a function or an array or an object or a string used to select the desired part of the context's value
  * @returns {any} the selected part of the context's value
  */
-function useContextSelector(Context, selector) {
+function useContextHook(Context, selector) {
     if (typeof selector === "function")
         return useSelector(Context, selector);
     if (Array.isArray(selector))
@@ -71,12 +71,12 @@ function useContextSelector(Context, selector) {
         return useSelector(Context, function (state) { return state[selector]; });
     throw new Error("Invalid selector");
 }
-exports.useContextSelector = useContextSelector;
+exports.useContextHook = useContextHook;
 /**
  * @description use this instead of React.createContext
  * @returns {React.Context} a context with a Provider that has a value property that is a ref
  */
-function createContext() {
+function createContextHook() {
     var context = (0, react_1.createContext)({
         value: { current: undefined },
         registerListener: function () { return function () { }; },
@@ -85,7 +85,7 @@ function createContext() {
     context.Provider = createProvider(context.Provider);
     return context;
 }
-exports.createContext = createContext;
+exports.createContextHook = createContextHook;
 /**
  * Deep comparison between two values
  * @param {any} obj1 the first value
@@ -175,4 +175,17 @@ function useSelector(context, selector) {
     }, [registerListener, value]);
     return selectedValue;
 }
+/**
+ * @deprecated use createContextHook instead
+ * @description use this instead of React.createContext
+ * @returns {React.Context} a context with a Provider that has a value property that is a ref
+ */
+exports.createContext = createContextHook;
+/**
+ * @deprecated use useContextHook instead
+ * @param {React.Context} Context a context created with createContext from this package
+ * @param {Function | Array | Object | string} selector a function or an array or an object or a string used to select the desired part of the context's value
+ * @returns {any} the selected part of the context's value
+ */
+exports.useContextSelector = useContextHook;
 //# sourceMappingURL=index.js.map

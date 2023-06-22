@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState } from "react";
-import { createContext } from "use-context-hook";
+import { createContextHook } from "use-context-hook";
 
 const context = {};
 
-export const Context = createContext(context);
+export const Context = createContextHook(context);
 
 export function ContextProvider(props) {
   const [count, setCount] = useState(1);

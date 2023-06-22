@@ -41,7 +41,7 @@ const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
  * @param {Function | Array | Object | string} selector a function or an array or an object or a string used to select the desired part of the context's value
  * @returns {any} the selected part of the context's value
  */
-export function useContextSelector<S, R>(
+export function useContextHook<S, R>(
   Context: Context<ContextValue<S>>,
   selector: Selector<S, R> | Array<keyof S> | Partial<S> | keyof S
 ): R {
@@ -69,7 +69,7 @@ export function useContextSelector<S, R>(
  * @description use this instead of React.createContext
  * @returns {React.Context} a context with a Provider that has a value property that is a ref
  */
-export function createContext<T = unknown>(): Context<ContextValue<T>> {
+export function createContextHook<T = unknown>(): Context<ContextValue<T>> {
   const context = createContextOriginal<ContextValue<T>>({
     value: { current: undefined },
     registerListener: () => () => {},
@@ -176,3 +176,18 @@ function useSelector<S, R>(
 
   return selectedValue;
 }
+/**
+ * @deprecated use createContextHook instead
+ * @description use this instead of React.createContext
+ * @returns {React.Context} a context with a Provider that has a value property that is a ref
+ */
+export const createContext = createContextHook;
+
+/**
+ * @deprecated use useContextHook instead
+ * @param {React.Context} Context a context created with createContext from this package
+ * @param {Function | Array | Object | string} selector a function or an array or an object or a string used to select the desired part of the context's value
+ * @returns {any} the selected part of the context's value
+ */
+
+export const useContextSelector = useContextHook;

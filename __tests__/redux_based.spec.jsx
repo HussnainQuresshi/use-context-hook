@@ -1,13 +1,13 @@
 import React, { StrictMode, useRef } from "react";
 import { render, fireEvent, cleanup, screen } from "@testing-library/react";
-import { createContext, useContextSelector } from "../dist";
+import { createContext, useContextHook } from "../dist";
 
 describe("redux based", () => {
   afterEach(cleanup);
   it("should not re-render componentB", () => {
     const Context = createContext();
     const ComponentA = () => {
-      const { count1, setCount1, complexObj } = useContextSelector(
+      const { count1, setCount1, complexObj } = useContextHook(
         Context,
         (v) => ({
           count1: v.count1,
@@ -28,7 +28,7 @@ describe("redux based", () => {
       );
     };
     const ComponentB = () => {
-      const { count2, complexObj } = useContextSelector(Context, (v) => ({
+      const { count2, complexObj } = useContextHook(Context, (v) => ({
         count2: v.count2,
         complexObj: v.complexObj,
       }));
