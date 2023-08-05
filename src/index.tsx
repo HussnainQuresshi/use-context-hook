@@ -3,7 +3,6 @@ import React, {
   useContext,
   useRef,
   useEffect,
-  useLayoutEffect,
   createContext as createContextOriginal,
   ReactNode,
   Context,
@@ -30,10 +29,10 @@ type Selector<S, R> = (state: S) => R;
 /**
  * Support for Server Side Rendering
  */
-const isSSR =
-  typeof window === "undefined" ||
-  /ServerSideRendering/.test(window.navigator && window.navigator.userAgent);
-const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
+// const isSSR =
+//   typeof window === "undefined" ||
+//   /ServerSideRendering/.test(window.navigator && window.navigator.userAgent);
+const useIsomorphicLayoutEffect = useEffect;
 
 /**
  * @description use this instead of React.useContext
@@ -72,7 +71,7 @@ export function useContextHook<S, R>(
 export function createContextHook<T = unknown>(): Context<ContextValue<T>> {
   const context = createContextOriginal<ContextValue<T>>({
     value: { current: undefined },
-    registerListener: () => () => {},
+    registerListener: () => () => { },
   });
   delete context.Consumer;
   context.Provider = createProvider(context.Provider) as any;
@@ -114,7 +113,7 @@ function deepCompare(obj1: any = "", obj2: any = ""): boolean {
  */
 function createProvider<T>(
   ProviderOriginal: React.Provider<ContextValue<T>>
-): React.FC<{ value: T; children?: ReactNode }> {
+): React.FC<{ value: T; children?: ReactNode; }> {
   return ({ value, children }) => {
     const valueRef = useRef(value);
     const listenersRef = useRef(new Set<Listener<T>>());
