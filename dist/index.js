@@ -39,9 +39,10 @@ var react_1 = __importStar(require("react"));
 /**
  * Support for Server Side Rendering
  */
-var isSSR = typeof window === "undefined" ||
-    /ServerSideRendering/.test(window.navigator && window.navigator.userAgent);
-var useIsomorphicLayoutEffect = isSSR ? react_1.useEffect : react_1.useLayoutEffect;
+// const isSSR =
+//   typeof window === "undefined" ||
+//   /ServerSideRendering/.test(window.navigator && window.navigator.userAgent);
+var useIsomorphicLayoutEffect = react_1.useEffect;
 /**
  * @description use this instead of React.useContext
  * @param {React.Context} Context a context created with createContext from this package
