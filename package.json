@@ -1,6 +1,6 @@
 {
   "name": "use-context-hook",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "React use-context-hook use-context-hook",
   "main": "dist/index.js",
   "map": "dist/index.js.map",
