@@ -6,17 +6,17 @@
 
 ---
 
-## 🎯 Changes Implemented
+## [Target] Changes Implemented
 
 ### 1. GitHub Actions Workflow (`.github/workflows/publish.yml`)
 **NEW FILE** - Automated publishing with modern security
 
 **Key Features:**
-- ✅ **Trusted Publishing (OIDC)** - Uses GitHub's OIDC token provider, no long-lived secrets needed
-- ✅ **Provenance attestation** - Adds `--provenance` flag for supply chain transparency
-- ✅ **Minimal permissions** - Only `id-token: write` and `contents: read`
-- ✅ **Tag-based triggers** - Publishes on version tags (e.g., `v2.0.6`)
-- ✅ **Full CI pipeline** - Runs type check, tests, build before publishing
+-  **Trusted Publishing (OIDC)** - Uses GitHub's OIDC token provider, no long-lived secrets needed
+-  **Provenance attestation** - Adds `--provenance` flag for supply chain transparency
+-  **Minimal permissions** - Only `id-token: write` and `contents: read`
+-  **Tag-based triggers** - Publishes on version tags (e.g., `v2.0.6`)
+-  **Full CI pipeline** - Runs type check, tests, build before publishing
 
 **How it works:**
 ```yaml
@@ -124,7 +124,7 @@ Classic tokens were revoked by npm in November 2025.
 
 ---
 
-## 🚀 How to Publish Now
+## [Publishing] How to Publish Now
 
 ### Option A: GitHub Actions (Recommended)
 This is the secure, automated way:
@@ -169,24 +169,24 @@ npm publish --access public
 
 ---
 
-## 🔒 Security Improvements
+## [Security] Security Improvements
 
 ### Before (Vulnerable):
-- ❌ No CI/CD automation
-- ❌ Likely using long-lived or classic tokens
-- ❌ No provenance attestation
-- ❌ Risk of token leakage
-- ❌ Manual publish process prone to errors
+-  No CI/CD automation
+-  Likely using long-lived or classic tokens
+-  No provenance attestation
+-  Risk of token leakage
+-  Manual publish process prone to errors
 
 ### After (Secure):
-- ✅ Automated CI/CD with GitHub Actions
-- ✅ Trusted Publishing (OIDC) - no long-lived tokens
-- ✅ Provenance attestation enabled
-- ✅ Comprehensive .gitignore protection
-- ✅ Short-lived granular tokens only (if manual)
-- ✅ WebAuthn/passkeys recommended
-- ✅ Security audit tooling
-- ✅ Complete documentation
+-  Automated CI/CD with GitHub Actions
+-  Trusted Publishing (OIDC) - no long-lived tokens
+-  Provenance attestation enabled
+-  Comprehensive .gitignore protection
+-  Short-lived granular tokens only (if manual)
+-  WebAuthn/passkeys recommended
+-  Security audit tooling
+-  Complete documentation
 
 ---
 
@@ -197,11 +197,11 @@ Run the security audit:
 npm run audit:security
 ```
 
-Expected output: All ✅ checks passed
+Expected output: All  checks passed
 
 ---
 
-## 📚 Reference Documents
+## [Docs] Reference Documents
 
 - **npm Security Announcement:** https://github.blog/changelog/2025-09-29-strengthening-npm-security-important-changes-to-authentication-and-token-management/
 - **Trusted Publishers Docs:** https://docs.npmjs.com/trusted-publishers
@@ -211,7 +211,7 @@ Expected output: All ✅ checks passed
 
 ---
 
-## 📝 Migration Timeline
+## [Notes] Migration Timeline
 
 ### npm Platform Changes:
 - **September 29, 2025:** Security requirements announced
@@ -225,7 +225,7 @@ Expected output: All ✅ checks passed
 
 ---
 
-## ✅ Checklist for Maintainers
+##  Checklist for Maintainers
 
 - [x] GitHub Actions workflow created (`.github/workflows/publish.yml`)
 - [x] Security documentation written (SECURITY.md)
@@ -241,7 +241,7 @@ Expected output: All ✅ checks passed
 
 ---
 
-## 🆘 Troubleshooting
+## [Help] Troubleshooting
 
 ### "OIDC token not found" error in GitHub Actions
 **Cause:** Trusted Publishing not configured on npmjs.com  

@@ -1,6 +1,6 @@
 # Quick Reference: Publishing use-context-hook
 
-## 🚀 Publish via GitHub Actions (Recommended)
+## [Publishing] Publish via GitHub Actions (Recommended)
 
 ```bash
 # Update version and create tag
@@ -22,7 +22,7 @@ git push && git push --tags
 
 ---
 
-## 💻 Manual Publish (Alternative)
+## [Local] Manual Publish (Alternative)
 
 ```bash
 # 1. Get a short-lived token
@@ -41,7 +41,7 @@ npm publish --access public
 
 ---
 
-## 🔍 Security Audit
+## [Audit] Security Audit
 
 ```bash
 npm run audit:security
@@ -59,16 +59,16 @@ Still need to do these on npmjs.com?
 
 ---
 
-## ❌ What NOT to Do
+##  What NOT to Do
 
-- ❌ DON'T use classic tokens (revoked by npm)
-- ❌ DON'T commit .npmrc files with tokens
-- ❌ DON'T create tokens longer than 90 days
-- ❌ DON'T share tokens between projects
+-  DON'T use classic tokens (revoked by npm)
+-  DON'T commit .npmrc files with tokens
+-  DON'T create tokens longer than 90 days
+-  DON'T share tokens between projects
 
 ---
 
-## 📚 Full Documentation
+## [Docs] Full Documentation
 
 - **Complete guide:** SECURITY.md
 - **Migration details:** NPM_SECURITY_MIGRATION.md

@@ -6,10 +6,10 @@ This project has been updated to comply with [npm's new security requirements](h
 
 ### Key Changes
 
-✅ **Classic npm tokens are NO LONGER USED** - All classic tokens were sunset by npm in November 2025  
-✅ **GitHub Actions uses Trusted Publishers (OIDC)** - No long-lived tokens in CI/CD  
-✅ **Local publishing requires short-lived granular tokens** - Maximum 90-day expiration  
-✅ **WebAuthn/Passkeys recommended** - TOTP being phased out  
+ **Classic npm tokens are NO LONGER USED** - All classic tokens were sunset by npm in November 2025  
+ **GitHub Actions uses Trusted Publishers (OIDC)** - No long-lived tokens in CI/CD  
+ **Local publishing requires short-lived granular tokens** - Maximum 90-day expiration  
+ **WebAuthn/Passkeys recommended** - TOTP being phased out  
 
 ---
 
@@ -57,11 +57,11 @@ git push && git push --tags
 
 ---
 
-### 💻 Manual Local Publishing (Alternative)
+### [Local] Manual Local Publishing (Alternative)
 
 If you need to publish manually (e.g., from your local machine), follow these guidelines:
 
-#### ⚠️ IMPORTANT: Use only short-lived granular tokens
+#### WARNING: IMPORTANT: Use only short-lived granular tokens
 
 1. **Generate a new granular access token** (NOT classic):
    - Go to https://www.npmjs.com/settings/~/tokens
@@ -91,11 +91,11 @@ If you need to publish manually (e.g., from your local machine), follow these gu
    ```
 
 4. **Security best practices:**
-   - ❌ **NEVER** commit tokens to git
-   - ✅ Use a password manager to store tokens
-   - ✅ Rotate tokens every 30-90 days
-   - ✅ Delete tokens after use if one-time
-   - ✅ Enable WebAuthn/passkeys on your npm account
+   -  **NEVER** commit tokens to git
+   -  Use a password manager to store tokens
+   -  Rotate tokens every 30-90 days
+   -  Delete tokens after use if one-time
+   -  Enable WebAuthn/passkeys on your npm account
 
 ---
 

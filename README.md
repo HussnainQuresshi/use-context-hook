@@ -39,12 +39,12 @@ Make the most out of this select hook and enjoy optimized rendering in your Reac
 
 ## Why use-context-hook?
 
-✅ **Prevent unnecessary re-renders** - Components only update when their selected values change  
-✅ **Redux-like selector pattern** - Familiar API for Redux users  
-✅ **TypeScript support** - Full type safety and autocomplete  
-✅ **Tiny bundle size** - Minimal overhead, maximum performance  
-✅ **Multiple selector patterns** - String, array, object, or function selectors  
-✅ **Zero dependencies** - Only React as peer dependency  
+**Prevent unnecessary re-renders** - Components only update when their selected values change  
+**Redux-like selector pattern** - Familiar API for Redux users  
+**TypeScript support** - Full type safety and autocomplete  
+**Tiny bundle size** - Minimal overhead, maximum performance  
+**Multiple selector patterns** - String, array, object, or function selectors  
+**Zero dependencies** - Only React as peer dependency  
 
 ## Installation
 
@@ -170,20 +170,20 @@ To create and use the context in your React application, follow these steps:
 
 ## Features & Benefits
 
-### 🚀 Performance Optimization
+### Performance Optimization
 
 Traditional `useContext` causes **all** consuming components to re-render when **any** context value changes. With `use-context-hook`, components only re-render when their **selected values** change.
 
 **Example:**
 ```jsx
-// ❌ Traditional useContext - re-renders on ANY context change
+// Traditional useContext - re-renders on ANY context change
 const { count, text, user, settings } = useContext(MyContext);
 
-// ✅ use-context-hook - only re-renders when 'count' changes
+// use-context-hook - only re-renders when 'count' changes
 const count = useContextHook(MyContext, 'count');
 ```
 
-### 📦 Flexible Selector API
+### Flexible Selector API
 
 Choose the selector pattern that fits your needs:
 
@@ -194,7 +194,7 @@ Choose the selector pattern that fits your needs:
 | **Object** | Explicit picks | `useContextHook(Context, { count: 1, text: 1 })` |
 | **Function** | Custom logic | `useContextHook(Context, v => ({ double: v.count * 2 }))` |
 
-### 🎯 Real-World Use Cases
+### Real-World Use Cases
 
 - **Large application state** - Only subscribe to the data you need
 - **Form components** - Prevent re-renders in unrelated form fields
@@ -327,10 +327,10 @@ Fully compatible with server-side rendering and Next.js.
 
 | Library | Bundle Size | Selector API | TypeScript | Re-render Prevention |
 |---------|-------------|--------------|------------|---------------------|
-| **use-context-hook** | ~2KB | ✅ Multiple patterns | ✅ Full support | ✅ Yes |
-| use-context-selector | ~3KB | ✅ Function only | ✅ Partial | ✅ Yes |
-| React Context | 0KB (built-in) | ❌ No selectors | ✅ Built-in | ❌ No |
-| Redux | ~15KB+ | ✅ Yes | ✅ Yes | ✅ Yes |
+| **use-context-hook** | ~2KB | Multiple patterns | Full support | Yes |
+| use-context-selector | ~3KB | Function only | Partial | Yes |
+| React Context | 0KB (built-in) | No selectors | Built-in | No |
+| Redux | ~15KB+ | Yes | Yes | Yes |
 
 ---
 
@@ -350,9 +350,9 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This package is hosted on GitHub: [https://github.com/HussnainQuresshi/use-context-hook](https://github.com/HussnainQuresshi/use-context-hook)
 
-⭐ **Star the repo** if you find it useful!  
-🐛 **Report issues** at [GitHub Issues](https://github.com/HussnainQuresshi/use-context-hook/issues)  
-💬 **Discussions** welcome at [GitHub Discussions](https://github.com/HussnainQuresshi/use-context-hook/discussions)
+**Star the repo** if you find it useful!  
+**Report issues** at [GitHub Issues](https://github.com/HussnainQuresshi/use-context-hook/issues)  
+**Discussions** welcome at [GitHub Discussions](https://github.com/HussnainQuresshi/use-context-hook/discussions)
 
 [![npm](https://img.shields.io/npm/v/use-context-hook)](https://www.npmjs.com/package/use-context-hook)
 [![size](https://img.shields.io/bundlephobia/minzip/use-context-hook)](https://bundlephobia.com/result?p=use-context-hook)
@@ -365,10 +365,10 @@ This package is hosted on GitHub: [https://github.com/HussnainQuresshi/use-conte
 
 This package uses modern npm security practices following the [September 2025 npm security updates](https://github.blog/changelog/2025-09-29-strengthening-npm-security-important-changes-to-authentication-and-token-management/):
 
-- ✅ **Trusted Publishing (OIDC)** via GitHub Actions - no long-lived tokens
-- ✅ **Provenance attestation** for supply chain security  
-- ✅ **Short-lived granular tokens only** (classic tokens sunset)
-- ✅ **WebAuthn/passkeys** for 2FA
+- **Trusted Publishing (OIDC)** via GitHub Actions - no long-lived tokens
+- **Provenance attestation** for supply chain security  
+- **Short-lived granular tokens only** (classic tokens sunset)
+- **WebAuthn/passkeys** for 2FA
 
 See [SECURITY.md](SECURITY.md) for complete publishing documentation and security guidelines.
 
