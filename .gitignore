@@ -1,1 +1,28 @@
+# Dependencies
 /node_modules
+
+# Build output
+/dist
+
+# npm configuration with potential tokens
+.npmrc
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+*.log

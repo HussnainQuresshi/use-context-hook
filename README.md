@@ -238,6 +238,19 @@ Feel free to explore the repository to find more information, contribute, or rep
 
 ---
 
+## Publishing & Security
+
+This package uses modern npm security practices following the [September 2025 npm security updates](https://github.blog/changelog/2025-09-29-strengthening-npm-security-important-changes-to-authentication-and-token-management/):
+
+- ✅ **Trusted Publishing (OIDC)** via GitHub Actions - no long-lived tokens
+- ✅ **Provenance attestation** for supply chain security  
+- ✅ **Short-lived granular tokens only** (classic tokens sunset)
+- ✅ **WebAuthn/passkeys** for 2FA
+
+See [SECURITY.md](SECURITY.md) for complete publishing documentation and security guidelines.
+
+---
+
 ## Acknowledgements
 
 This package was created with the help and inspiration from the article ["Use Context Selector Demystified"](https://dev.to/romaintrotard/use-context-selector-demystified-4f8e) by Romain Trotard. The article provides valuable insights into the usage of `useContextHook` and served as a reference during the development of this package. I would like to express my gratitude to Romain Trotard for sharing their knowledge and contributing to the community.

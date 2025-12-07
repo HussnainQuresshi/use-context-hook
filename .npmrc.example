@@ -1,0 +1,17 @@
+# Example .npmrc configuration
+# Copy this to .npmrc if needed for local development
+# DO NOT commit .npmrc with authentication tokens!
+
+# Registry configuration
+registry=https://registry.npmjs.org/
+
+# For authentication, use one of these methods:
+# 1. Run: npm login (recommended)
+# 2. Run: npm config set //registry.npmjs.org/:_authToken=YOUR_TOKEN
+
+# SECURITY NOTES:
+# - Use ONLY granular access tokens (not classic tokens)
+# - Maximum token expiration: 90 days
+# - Enable WebAuthn/passkeys on your npm account
+# - Never commit tokens to version control
+# - Store tokens in a password manager

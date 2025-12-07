@@ -12,7 +12,8 @@
     "example:single_str": "DIR=single_str webpack serve --open",
     "example:redux_based": "DIR=redux_based webpack serve --open",
     "example:obj_based": "DIR=obj_based webpack serve --open",
-    "example:multiple_strs": "DIR=multiple_strs webpack serve --open"
+    "example:multiple_strs": "DIR=multiple_strs webpack serve --open",
+    "audit:security": "bash scripts/audit-npm-security.sh"
   },
   "jest": {
     "testEnvironment": "jsdom"
