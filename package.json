@@ -1,6 +1,6 @@
 {
   "name": "use-context-hook",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "React hook for selective context subscriptions - Prevent unnecessary re-renders with Redux-like selectors for React Context",
   "main": "dist/index.js",
   "map": "dist/index.js.map",
