@@ -1,7 +1,7 @@
 {
   "name": "use-context-hook",
   "version": "2.0.5",
-  "description": "React use-context-hook use-context-hook",
+  "description": "React hook for selective context subscriptions - Prevent unnecessary re-renders with Redux-like selectors for React Context",
   "main": "dist/index.js",
   "map": "dist/index.js.map",
   "types": "dist/index.d.ts",
@@ -26,9 +26,17 @@
     "react",
     "react-context",
     "context",
+    "hooks",
     "use-context-hook",
     "use-context-selector",
-    "use-context-hook"
+    "context-selector",
+    "react-hooks",
+    "performance",
+    "optimization",
+    "re-render",
+    "redux-selector",
+    "typescript",
+    "context-api"
   ],
   "author": "Hussnain Qureshi",
   "license": "MIT",
