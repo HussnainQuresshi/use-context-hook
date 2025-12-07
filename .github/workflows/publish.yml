@@ -40,7 +40,3 @@ jobs:
 
       - name: Publish to npm with provenance
         run: npm publish --provenance --access public
-        env:
-          # When Trusted Publishing is configured on npmjs.com, this uses OIDC
-          # Otherwise falls back to NODE_AUTH_TOKEN secret (granular token only)
-          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
